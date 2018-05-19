@@ -22,7 +22,7 @@ export class AuthService {
     return this.auth.authState;
   }
 
-  async createUserWithEmailAndPassword(account){
+  public async createUserWithEmailAndPassword(account){
     try {
       return <LoginResponse>{
         result:await this.auth.auth.createUserWithEmailAndPassword(account.email,account.password)

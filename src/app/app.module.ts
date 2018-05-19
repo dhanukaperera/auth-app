@@ -13,6 +13,12 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import {AuthService} from './services/auth.service';
+import { AuthGuard} from './auth.guard';
+import { routes } from './app.routes';
+
+import { RouterModule } from '@angular/router';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,9 +33,11 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     HttpModule,
     AngularFireModule.initializeApp(FIREBASE),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    routes,
+    RouterModule
   ],
-  providers: [],
+  providers: [AuthGuard,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
