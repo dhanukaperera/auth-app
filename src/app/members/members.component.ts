@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-members',
   templateUrl: './members.component.html',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MembersComponent implements OnInit {
 
-  constructor() { }
+  constructor(public afAuth: AuthService,private router:Router) { }
 
   ngOnInit() {
   }
-
+  signOut(){
+this.afAuth.singOut();
+  }
 }

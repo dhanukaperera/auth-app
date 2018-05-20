@@ -40,7 +40,17 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.afAuth.getAuthenticatedUser().subscribe(res =>{
+      if (res && res.uid) {
+        console.log('user is logged in');
+        this.router.navigate(['/members']);
+       
+      } else {
+        console.log('user not logged in');
+        this.router.navigate(['/login']);
+       
+      }
+    })
   }
 
 }
